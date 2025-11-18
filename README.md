@@ -34,7 +34,7 @@ The controller will use a Finite State Machine (FSM) and counters, written in Ve
 ## Design Schematics
 
 ### Elaborated Design
-![Elaborated Design](Images/Elaborated_design1.png)
+![Elaborated Design](Images/Elaborated_design2.png)
 
 ### Synthesized Design
 ![Synthesized Design](Images/Synthesized_design1.png)
