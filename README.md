@@ -31,6 +31,11 @@ The controller will use a Finite State Machine (FSM) and counters, written in Ve
     * `leds[14]` (Available): Lights up when `count < 20`.
     * `leds[0-13]`: Act as a bar graph, where `leds[i]` is lit if `count > i`.
 
+### RTL Schematic
+Below is the synthesized design schematic showing the connections between the debouncers, controller, and display driver.
+
+![RTL Schematic](Images/Screenshot%202025-11-15%20211638.png)
+
 ## Module Descriptions
 
 This project is composed of several Verilog modules:
@@ -48,10 +53,7 @@ This project is composed of several Verilog modules:
 
 The `parking_ctrl` module was verified with the `tb_parking_ctrl.v` testbench. The simulation shows the count correctly incrementing, decrementing, and handling edge cases (not exceeding 20 or going below 0).
 
-**--- (ADD YOUR WAVEFORM IMAGE HERE) ---**
-
-*To add your image, upload it to this repository and replace this text with:*
-`![Simulation Waveform](path/to/your/waveform.png)`
+![Simulation Waveform](Images/Screenshot%202025-11-15%20211006.png)
 
 ### Hardware Implementation (Basys3 Board)
 
@@ -61,7 +63,5 @@ The design was successfully synthesized and implemented on the Basys3 board.
 * The 'Full' (LED 15) and 'Available' (LED 14) lights function correctly.
 * The `btn_entry`, `btn_exit`, and `btn_reset` buttons control the system as expected.
 
-**--- (ADD YOUR BOARD PHOTO HERE) ---**
-
-*To add your image, upload it to this repository and replace this text with:*
-`![Basys3 Board Output](path/to/your/board_photo.jpg)`
+![Basys3 Board Output](Images/20251113_154901.heic)
+*Figure: Board showing 'Full' status (Count = 20)*
