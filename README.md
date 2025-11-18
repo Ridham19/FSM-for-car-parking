@@ -31,10 +31,13 @@ The controller will use a Finite State Machine (FSM) and counters, written in Ve
     * `leds[14]` (Available): Lights up when `count < 20`.
     * `leds[0-13]`: Act as a bar graph, where `leds[i]` is lit if `count > i`.
 
-### RTL Schematic
-Below is the synthesized design schematic showing the connections between the debouncers, controller, and display driver.
+## Design Schematics
 
-![RTL Schematic](Images/Screenshot%202025-11-15%20211638.png)
+### Elaborated Design
+![Elaborated Design](Images/Elaborated_design1.png)
+
+### Synthesized Design
+![Synthesized Design](Images/Synthesized_design1.png)
 
 ## Module Descriptions
 
@@ -50,18 +53,25 @@ This project is composed of several Verilog modules:
 ## Results
 
 ### Simulation Waveforms
+The `parking_ctrl` module was verified with the `tb_parking_ctrl.v` testbench.
 
-The `parking_ctrl` module was verified with the `tb_parking_ctrl.v` testbench. The simulation shows the count correctly incrementing, decrementing, and handling edge cases (not exceeding 20 or going below 0).
+**Waveform 1: Count Transitions**
+![Waveform 1](Images/waveform1.png)
 
-![Simulation Waveform](Images/Screenshot%202025-11-15%20211006.png)
+**Waveform 2: Incrementing Count**
+![Waveform 2](Images/waveform2.png)
+
+**Waveform 3: Full Signal Assertion**
+![Waveform 3](Images/waveform3.png)
 
 ### Hardware Implementation (Basys3 Board)
 
 The design was successfully synthesized and implemented on the Basys3 board.
 
-* The 7-segment display shows the current count.
-* The 'Full' (LED 15) and 'Available' (LED 14) lights function correctly.
-* The `btn_entry`, `btn_exit`, and `btn_reset` buttons control the system as expected.
+**Board Output 1: Initial State (Available)**
+![Basys3 Available](Images/board_1.jpg)
+*Figure: Board showing 'Available' status (Count = 0000)*
 
-![Basys3 Board Output](Images/20251113_154901.heic)
-*Figure: Board showing 'Full' status (Count = 20)*
+**Board Output 2: Maximum Capacity (Full)**
+![Basys3 Full](Images/board_2.jpg)
+*Figure: Board showing 'Full' status (Count = 0020)*
